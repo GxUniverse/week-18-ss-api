@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const authController = require('./controllers/auth');
+const userController = require('./controllers/user');
 const app = express();
 
 // connect my db
@@ -17,6 +18,7 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
   app.use(express.urlencoded({extended: true}))
 
   app.use('/auth', authController)
+  app.use('/user', userController)
   
 // connect my server
 
