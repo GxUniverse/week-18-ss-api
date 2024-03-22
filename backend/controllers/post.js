@@ -1,5 +1,4 @@
 const verifyToken = require('../middleware/verifyToken')
-const post = require('../models/post')
 const Post = require('../models/post')
 const postController = require('express').Router()
 
@@ -29,7 +28,7 @@ postController.get('/find/:id', async(req, res) => {
 })
 //create a post
 
-postController.post('/:id', verifyToken, async(req, res) => {
+postController.post('/', verifyToken, async(req, res) => {
     try {
         const post = await Post.findById(req.params.id)
         if(post.userId === req.user.id){

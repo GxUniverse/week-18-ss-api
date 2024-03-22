@@ -10,12 +10,11 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true,
-        min: 6,
     },
     password: {
         type: String,
         required: true,
-        min: 6,
+        min: 4,
     },
     followings: {
         type: [String],
@@ -27,4 +26,4 @@ const UserSchema = new mongoose.Schema({
     }
 }, {timestamps: true})
 
-module,exports = mongoose.model("User", UserSchema)
+module.exports = mongoose.model("User", UserSchema)

@@ -7,7 +7,8 @@ const verifyToken = require('../middleware/verifyToken')
 userController.get('/find/:userId', async(req, res) => {
     try {
         const user =await User.findById(req.params.userId)
-        if(!user){
+        if(!user){ 
+            console.log(err)
             return res.status(500).json({msg: 'No such user, wrong id!'})
         }
         
@@ -15,6 +16,7 @@ userController.get('/find/:userId', async(req, res) => {
 
         return res.status(200).json({user: others})
     } catch (error) {
+       
         return res.status(500).json(error.message)
     }
 })
@@ -24,7 +26,7 @@ userController.get('/findAll', async(req, res) => {
     try {
         const user =await User.find()
       
-        const formattedUsers = users.map((user) => {
+        const formattedUsers = user.map((user) => {
             return {username: user.username, email: user.email, _id: user.createdAt}
         })
 
