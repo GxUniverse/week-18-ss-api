@@ -1,5 +1,5 @@
 const verifyToken = require('../middleware/verifyToken')
-const Reaction = require('../models/Reaction')
+const Reaction = require('../models/reaction')
 const reactionController = require('express').Router()
 
 // get all reactions from thought

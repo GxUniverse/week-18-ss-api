@@ -54,7 +54,7 @@ userController.post("/updateUser/:userId", verifyToken, async(req, res) => {
 })
 //delete
 
-userController.delete("/delteUser/:userId", verifyToken, async(req, res) => {
+userController.delete("/deleteUser/:userId", verifyToken, async(req, res) => {
     if(req.params.userId === req.user.id) {
     try {
         await user.findByIdAndDelete(req.params.userId)
