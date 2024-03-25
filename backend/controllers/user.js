@@ -11,7 +11,7 @@ userController.get('/find/:userId', async(req, res) => {
             console.log(err)
             return res.status(500).json({msg: 'No such user, wrong id!'})
         }
-        
+        //hide the password
         const {password, ...others} = user._doc
 
         return res.status(200).json({user: others})
@@ -37,7 +37,7 @@ userController.get('/findAll', async(req, res) => {
 })
 //update
 
-userController.put("/updateUser/:userId", verifyToken, async(req, res) => {
+userController.post("/updateUser/:userId", verifyToken, async(req, res) => {
     if (req.params.userId === req.user.id) {
     try {
         if(req.body.password) {

@@ -3,8 +3,8 @@ const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const authController = require('./controllers/auth');
 const userController = require('./controllers/user');
-const postController = require('./controllers/post')
-const commentController = require('./controllers/comment')
+const thoughtController = require('./controllers/thought')
+const reactionController = require('./controllers/reaction')
 const app = express();
 
 // connect my db
@@ -21,8 +21,8 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
 
   app.use('/auth', authController)
   app.use('/user', userController)
-  app.use('/post', postController)
-  app.use('/comment', commentController)
+  app.use('/thought', thoughtController)
+  app.use('/reaction', reactionController)
   
 // connect my server
 

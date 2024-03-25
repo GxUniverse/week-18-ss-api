@@ -1,5 +1,6 @@
 const authController = require('express').Router()
 const User = require('../models/user')
+const thought = require('../models/thought')
 const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken")
 

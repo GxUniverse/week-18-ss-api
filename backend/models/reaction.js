@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
-const CommentSchema = new mongoose.Schema({
-    postId: {
+const ReactionSchema = new mongoose.Schema({
+    thoughtId: {
         type: String,
         required: true,
     },
@@ -9,7 +9,7 @@ const CommentSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    commentText: {
+    reactionText: {
         type: String,
         required: true,
         min: 4,
@@ -20,4 +20,4 @@ const CommentSchema = new mongoose.Schema({
     }
 }, {timestamps: true})
 
-module.exports = mongoose.model("Comment", CommentSchema)
+module.exports = mongoose.model("Reaction", ReactionSchema)
